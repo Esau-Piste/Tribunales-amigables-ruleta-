@@ -1,67 +1,135 @@
-:root{
-    --bg-pirncipal: #c8efee;
+:root {
+    --bg-principal: #c8efee;
     --color-btn: #ffd700;
-    --color:#333333;
+    --color: #333333;
+
+
+    --color2: #88D1F2; 
+    --color1: #F8F074; 
+    --color6: #B1E577; 
+    --color5: #D1B9D9; 
+    --color4: #EB987A; 
+    --color3: #D53E4F; 
+
 }
-
-
-*{
+    
+    
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
-body{
+body {
     height: 100vh;
-    background-color:var(--bg-pirncipal) ;
+    background-color: var(--bg-principal);
 }
-.wrapper{
+
+.wrapper {
     width: 90%;
     max-width: 34.37em;
-    position: absolute;
-    transform: translate(-50% ,-50%);
-    top: 50%;
-    left: 50%;
-    padding: 3em;
-    background-color: var(--bg-pirncipal);
-}
-.conteiner{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-#wheel{
-    max-height: inherit;
-    width:inherit;
-    top: 0;
-    padding: 0;
-}
-@keyframes rotate {
-    100%{
-        transform: rotate(360deg);
-    }
-}
-
-#spin-btn{
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    width: 8vw; /* Ajusta la unidad a "vw" para que sea más proporcional */
-    height: 8vw; /* Igual que el ancho para mantener el círculo */
+    padding: 3em;
+    background-color: var(--bg-principal);
+}
+
+.container {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    position: absolute;
+    left: -5vw; /* Ajusta la distancia horizontal (usando vw para hacerlo proporcional) */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7vw; /* Tamaño de la flecha ajustado proporcionalmente */
+    height: auto;
+}
+
+#wheel {
+   /* max-height: 100%;*/
+    width: 100%; /* Ruleta ajustable proporcional */
+    padding: 0;
+}
+
+#spin-btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 5vw; /* Proporcional al ancho de la pantalla */
+    height: 5vw; /* Mantiene un círculo perfecto */
     border-radius: 50%;
     cursor: pointer;
     border: 0;
     background: radial-gradient(#fdcf3d 50%, #d88a40 85%);
     color: var(--color);
     text-transform: uppercase;
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Ajuste de tamaño de fuente */
     letter-spacing: 0.1rem;
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .arrow {
+        left: -10vw; /* Mueve la flecha más lejos en pantallas pequeñas */
+        width: 15vw; /* Escala la flecha proporcionalmente */
+    }
+
+    #spin-btn {
+        width: 10vw; /* Ajusta el tamaño del botón */
+        height: 10vw;
+        font-size: 1.5rem; /* Reduce el tamaño del texto en el botón*/ 
+    }
+
+    main {
+        width: 90%;   /* Reduce el tamaño de la ruleta */
+    }
+}
+
+@media  (max-width: 768px) {
+    .arrow {
+        left: -10vw; /* Mueve la flecha más lejos en pantallas pequeñas */
+        width: 15vw; /* Escala la flecha proporcionalmente */
+    }
+
+    #spin-btn {
+        width: 12vw; /* Ajusta el tamaño del botón */
+        height: 12vw;
+        font-size: 1.5rem; /* Reduce el tamaño del texto en el botón*/ 
+    }
+
+    #wheel {
+        width: 90%; /* Reduce el tamaño de la ruleta */
+    }
+}
+
+@media (max-width: 480px) {
+    .arrow {
+        left: -1vw; /* Mueve la flecha aún más lejos */
+        width: 12vw;
+    }
+    .wrapper{
+        top: 45%;
+    }
+
+    #spin-btn {
+        width: 15vw;
+        height: 15vw;
+        font-size: 1rem;
+    }
+
+    
 }
