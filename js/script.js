@@ -58,7 +58,15 @@ let myChart = new Chart(wheel, {
                 const y = centerY + Math.sin(angle) * radius;
                 
                 // Dibuja la imagen
-                const imageSize = 80; // Tamaño de la imagen
+                let imageSize = 0; // Tamaño de la imagen
+                if(screen.width <= 480){
+                    imageSize = 40;
+                }else if(screen.width<= 768 ){
+                    imageSize = 75;
+                } else{
+                    imageSize=80;
+                }
+                
                 if (loadedImages[index].complete) {
                     ctx.save();
                     ctx.translate(x, y);
