@@ -153,10 +153,10 @@ const determineValue = (angle) => {
     for (let segment of roatationValues) {
         if (angle >= segment.minDegree && angle <= segment.maxDegree) {
             selectedValue = segment.value; // Almacena el valor seleccionado
-            finalValue.innerHTML = `
+            /*finalValue.innerHTML = `
             <p>Valor: ${selectedValue}</p>
             <p>Ángulo: ${angle}°</p> 
-            `;
+            `;*/
             break;
         }
     }
