@@ -25,7 +25,7 @@ body {
     background-color: var(--bg-principal);
 }
 
-.wrapper {
+.game-content {
     width: 90%;
     max-width: 34.37em;
     position: absolute;
@@ -45,9 +45,10 @@ body {
     justify-content: center;
 }
 
-.arrow {
+.arrow-game {
     position: absolute;
-    left: -5vw; /* Ajusta la distancia horizontal (usando vw para hacerlo proporcional) */
+    /*estaba en -5*/
+    left: -7vw; /* Ajusta la distancia horizontal (usando vw para hacerlo proporcional) */
     top: 50%;
     transform: translateY(-50%);
     width: 7vw; /* Tamaño de la flecha ajustado proporcionalmente */
@@ -65,8 +66,9 @@ body {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    width: 5vw; /* Proporcional al ancho de la pantalla */
-    height: 5vw; /* Mantiene un círculo perfecto */
+        /*estaba en 5*/
+    width: 10vw; /* Proporcional al ancho de la pantalla */
+    height: 10vw; /* Mantiene un círculo perfecto */
     border-radius: 50%;
     cursor: pointer;
     border: 0;
