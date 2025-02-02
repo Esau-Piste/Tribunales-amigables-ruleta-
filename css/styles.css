@@ -1,0 +1,173 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f7f7f7;
+    position: relative;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    grid-template-columns: auto 1fr auto; 
+    align-items: center;
+    background-color: #552F7E; 
+    color: white;
+    padding: 10px;
+}
+
+.arrow {
+    left: 500px;
+    top: 25px;
+}
+
+.symbol {
+  justify-content: right;
+}
+
+
+.home {
+    right: 500px;
+    top: 25px;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.arrow-container {
+    justify-content: start; 
+}
+  
+ 
+.home-container {
+  justify-content: end;
+}
+  
+
+.cloud-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%; 
+  height: auto; 
+}
+
+.cloud-image {
+    display: block;
+    width: auto; 
+    height: auto; 
+    z-index: 1; 
+  }
+
+.title{
+    position: absolute; 
+    top: 55% ; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 2; 
+    margin: 0;
+    font-size: 2em; 
+    font-family: 'Lazy dog', sans-serif;                                                
+    /*font-weight:900;*/
+    /*font-style:unset;*/ 
+    color:#D14081; 
+}
+
+.logo {
+    position: absolute;
+    left: 10px;
+    bottom: 80px;
+    max-width: 100px;
+    opacity: 0.85;
+}
+.game-content {
+    flex-grow: 1;
+    padding: 1em;
+}
+
+.footer {
+    background-color: #552F7E;
+    color: white;
+    text-align: center;
+    font-size: smaller;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes hoverEffect {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3); 
+  }
+}
+
+.img-button:hover {
+  animation: hoverEffect 1s infinite ease-in-out;
+}
+
+
+@media (max-width: 768px) {
+    .header {
+      flex-direction: column; 
+      padding: 5px; 
+    }
+  
+    .arrow-container, .cloud-container, .home-container {
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .arrow, .home {
+      width: 30px; 
+      margin: 5px auto; 
+    }
+  
+    .cloud-container {
+      margin: 10px auto; 
+      position: relative;
+    }
+  
+    .cloud-image {
+      width: 80%; 
+      height: auto; 
+      position: relative; 
+    }
+  
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1em; 
+      padding: 0; 
+      margin: 0; 
+    }
+  
+    .symbol {
+      display: none; 
+    }
+  
+    .logo {
+      width: 50px;
+      left: calc(50% - 25px); 
+      bottom: 10px;
+    }
+  
+    .footer {
+      padding: 5px; 
+      font-size: 0.9em; 
+    }
+  }
+ 
+
+  

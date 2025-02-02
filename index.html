@@ -1,26 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juego para Niños</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/game.css">
+<link rel="stylesheet" href="css/popups.css">
+<link href="https://fonts.cdnfonts.com/css/lazy-dog" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
-        <div class = "contaniner">
-            <canvas id="wheel"></canvas>
-            <button id="spin-btn">Girar</button>
-        </div>
-        <div id="final-value">
-            <p>reusltado</p>
-        </div>
-        
-    </div>
+
+        <header class="header">
+            <div class="grid-item arrow-container">
+            <a href="#"><img src="./imagenes/flecha-verde.png" alt="Flecha" class="img-button"></a>
+            </div>
+            <div class="grid-item cloud-container">
+                <img src="./imagenes/yellow-cloud.png" alt="Nube" class="cloud-image">
+                <h1 class="title">RULETA DE EMOCIONES</h1>
+
+            </div>
+            <div class="grid-item home-container">
+            <a href="#"><img src="./imagenes/casa.png" alt="Inicio" class="home img-button"></a>
+            </div>
+        </header>
     
+
+        <main class="game-content">
+            <div id="instructions-game" >
+                <div class="instructions-content">
+                    <h1>Ruleta</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quia, dolores deleniti esse vero quae enim, doloremque officia similique voluptates amet eius nisi voluptate mollitia ipsa. Vitae vel laboriosam consectetur!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea a voluptas iusto id facere veniam tenetur doloribus molestiae dignissimos quod, unde minima ex reiciendis cupiditate blanditiis recusandae alias ipsam perspiciatis.
+                    </p>
+                    <button id="start-game">Comenzar</button>
+                </div>
+            </div>
+           
+            <section class = "contaniner">
+                <img src="IMG/icons8-flecha-adelante-100.png" alt="Flecha rosada" class="arrow-game">
+                <div class="RULETA">
+                    <canvas id="wheel"></canvas>
+                    <button id="spin-btn">Girar</button>
+                </div>
+            </section>
+           
+            
+            
+        </main>
+
+        <footer class="footer">
+            <p>UNIVERSIDAD AUTÓNOMA DE YUCATÁN   |      © TODOS LOS DERECHOS RESERVADOS</p>
+        </footer>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
-    <script src="js/ejemplo.js"></script>
-    
+    <script src="js/script.js"></script>
 </body>
 </html>
