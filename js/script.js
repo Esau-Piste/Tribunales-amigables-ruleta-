@@ -1,6 +1,13 @@
 const wheel = document.getElementById("wheel");
 const spingBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
+const instructionsGame = document.getElementById("instructions-game");
+const  startGame= document.getElementById("start-game");
+
+
+startGame.addEventListener("click", ()=> {
+    instructionsGame.style.display="none";
+})
 
 const roatationValues = [
     {minDegree: 0, maxDegree: 30 , value : 2},
