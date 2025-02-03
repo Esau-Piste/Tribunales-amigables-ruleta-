@@ -60,7 +60,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  cursor: zoom-in;
   border: 2px solid #fdcf3d;
 }
 #spin-btn:hover {
