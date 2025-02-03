@@ -3,7 +3,7 @@ const spingBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
 const instructionsGame = document.getElementById("instructions-game");
 const  startGame= document.getElementById("start-game");
-
+const sound = new Audio('sonidos/spin-sound2.mp3');
 // IDs de los popups de emociones
 const popups = {
     1: document.getElementById("happiness"),
@@ -140,6 +140,9 @@ let selectedValue = null; // Valor seleccionado después del giro
 const spinWheel = () => {
     spingBtn.disabled = true; // Deshabilita el botón mientras gira
 
+    // Iniciar la reproducción del sonido
+    sound.play();
+    
     // Seleccionar un segmento aleatorio
     const randomSegment = rotationValues[Math.floor(Math.random() * rotationValues.length)];
     const randomDegree = (randomSegment.minDegree + randomSegment.maxDegree) / 2; // Ángulo central del segmento seleccionado
@@ -152,7 +155,7 @@ const spinWheel = () => {
         offset = 250;
     }
     const targetAngle = offset - randomDegree; // Ángulo necesario para alinear el segmento con la flecha
-    const totalRotation = 360 * 5 + targetAngle + 360; // Rotaciones completas + ajuste
+    const totalRotation = 360 * 6 + targetAngle + 360; // Rotaciones completas + ajuste
 
     // Animación de la ruleta
     const rotationAnimation = setInterval(() => {
@@ -163,8 +166,10 @@ const spinWheel = () => {
             clearInterval(rotationAnimation); // Detén la animación
             rotationAngle %= 360; // Mantén el ángulo dentro de 0-360
             determineValue((360 + offset - rotationAngle) % 360); // Determina el valor seleccionado basado en el ángulo real
+            sound.pause(); // Detener el sonido cuando la ruleta se detiene
+            sound.currentTime = 0; // Resetea el sonido para que pueda reproducirse nuevamente si es necesario
         }
-    }, 10);
+    }, 15);
 };
 
 const showPopup = (value) => {
