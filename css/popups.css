@@ -11,7 +11,6 @@
     z-index: 10;
 }
 
-
 .popups-content {
     font-family: 'Merriweather Sans', sans-serif;
     background-color: #fff;
@@ -27,6 +26,7 @@
     width: 20%;
     height: auto;
 }
+
 #start-game {
     background-color: #4CAF50;
     color: white;
@@ -49,6 +49,30 @@
     align-items: center;
     z-index: 10;
 }
+#sadness .popups-content{
+    background-color: #88d1f2; /* Color para tristeza (tomato) */
+}
+
+#happiness .popups-content {
+    background-color: #F8F074; /* Color para felicidad (yellow) */
+}
+
+#anger .popups-content{
+    background-color: #D53E4F; /* Color para ira (red-orange) */
+}
+
+#surprise .popups-content{
+    background-color: #EB987A; /* Color para sorpresa (lightblue) */
+}
+
+#fear .popups-content{
+    background-color: #D1B9D9; /* Color para miedo (black) */
+}
+
+#disgust .popups-content {
+    background-color: #B1E577; /* Color para disgusto (darkolivegreen) */
+}
+
 .play-again{
     background-color: #4CAF50;
     color: white;
