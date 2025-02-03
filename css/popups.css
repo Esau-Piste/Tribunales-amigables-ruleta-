@@ -10,7 +10,6 @@
     align-items: center;
     z-index: 10;
 }
-
 .popups-content {
     font-family: 'Merriweather Sans', sans-serif;
     background-color: #fff;
@@ -19,14 +18,12 @@
     width: 500px;
     height: auto;
 }
-
 .popups-content img{
     border-radius: initial;
     box-shadow: none;
     width: 20%;
     height: auto;
 }
-
 #start-game {
     background-color: #4CAF50;
     color: white;
@@ -36,7 +33,6 @@
     cursor: pointer;
     margin-top: 20px;
 }
-
 #sadness, #happiness, #anger, #surprise, #fear, #disgust {
     display: none; 
     position: fixed;
@@ -52,27 +48,21 @@
 #sadness .popups-content{
     background-color: #88d1f2; /* Color para tristeza (tomato) */
 }
-
 #happiness .popups-content {
     background-color: #F8F074; /* Color para felicidad (yellow) */
 }
-
 #anger .popups-content{
     background-color: #D53E4F; /* Color para ira (red-orange) */
 }
-
 #surprise .popups-content{
     background-color: #EB987A; /* Color para sorpresa (lightblue) */
 }
-
 #fear .popups-content{
     background-color: #D1B9D9; /* Color para miedo (black) */
 }
-
 #disgust .popups-content {
     background-color: #B1E577; /* Color para disgusto (darkolivegreen) */
 }
-
 .play-again{
     background-color: #4CAF50;
     color: white;
@@ -81,4 +71,49 @@
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 20px;
+}
+/* Para pantallas con un ancho máximo de 480px */
+@media (max-width: 480px) {
+    .popups-content {
+        width: 90%; /* Reduce el tamaño para adaptarse a pantallas pequeñas */
+        padding: 15px; /* Menos espacio interior */
+    }
+
+    .popups-content img {
+        width: 40%; /* Aumenta el tamaño de la imagen */
+    }
+
+    #start-game, .play-again {
+        padding: 8px 16px; /* Botones más pequeños */
+    }
+}
+/* Para pantallas con un ancho máximo de 768px */
+@media (max-width: 768px) {
+    .popups-content {
+        width: 80%; /* Ajuste del tamaño para pantallas medianas */
+        padding: 18px;
+    }
+
+    .popups-content img {
+        width: 30%; /* Ajuste del tamaño de la imagen */
+    }
+
+    #start-game, .play-again {
+        padding: 10px 18px; /* Botones más pequeños pero legibles */
+    }
+}
+/* Para pantallas con un ancho máximo de 1024px */
+@media (max-width: 1024px) {
+    .popups-content {
+        width: 70%; /* Ajuste para pantallas más grandes, pero aún responsivas */
+        padding: 20px;
+    }
+
+    .popups-content img {
+        width: 25%; /* Ajusta el tamaño de la imagen */
+    }
+
+    #start-game, .play-again {
+        padding: 12px 24px; /* Botones de tamaño cómodo */
+    }
 }

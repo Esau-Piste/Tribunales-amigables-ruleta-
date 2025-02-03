@@ -4,6 +4,7 @@ const finalValue = document.getElementById("final-value");
 const instructionsGame = document.getElementById("instructions-game");
 const  startGame= document.getElementById("start-game");
 const sound = new Audio('sonidos/spin-sound2.mp3');
+
 // IDs de los popups de emociones
 const popups = {
     1: document.getElementById("happiness"),
@@ -30,12 +31,12 @@ document.querySelectorAll(".play-again").forEach(button => {
 });
 
 const rotationValues = [
-    {minDegree: 0, maxDegree: 30 , value : 2},
-    {minDegree: 31, maxDegree: 90 , value : 1},
-    {minDegree: 91, maxDegree: 150 , value : 6},
-    {minDegree: 151, maxDegree: 210 , value : 5},
-    {minDegree: 211, maxDegree: 270 , value : 4},
-    {minDegree: 271, maxDegree: 330 , value : 3},
+    {minDegree: 0, maxDegree: 30 , value : 2}, //Tristeza
+    {minDegree: 31, maxDegree: 90 , value : 1}, //Felicidad
+    {minDegree: 91, maxDegree: 150 , value : 6}, //Asco
+    {minDegree: 151, maxDegree: 210 , value : 5}, //Miedo
+    {minDegree: 211, maxDegree: 270 , value : 4}, //Sorpresa
+    {minDegree: 271, maxDegree: 330 , value : 3}, //Enojo
     {minDegree: 331, maxDegree: 360 , value : 2}
 ] ;
 
@@ -175,7 +176,7 @@ const spinWheel = () => {
 const showPopup = (value) => {
     // Oculta todos los popups antes de mostrar el correcto
     Object.values(popups).forEach(popup => popup.style.display = "none");
-    
+
     // Muestra el popup correspondiente al valor seleccionado
     let popupId = "";
     switch (value) {
