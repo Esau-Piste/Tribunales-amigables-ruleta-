@@ -89,10 +89,10 @@ body, html {
     max-width: 100px;
     opacity: 0.85;
 }
-/*.game-content {
+.game-content {
     flex-grow: 1;
     padding: 1em;
-}*/
+}
 
 .footer {
     background-color: #552F7E;
@@ -168,3 +168,6 @@ body, html {
       font-size: 0.9em; 
     }
   }
+ 
+
+  

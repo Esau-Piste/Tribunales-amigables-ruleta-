@@ -1,8 +1,35 @@
 const wheel = document.getElementById("wheel");
 const spingBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
+const instructionsGame = document.getElementById("instructions-game");
+const  startGame= document.getElementById("start-game");
 
-const roatationValues = [
+// IDs de los popups de emociones
+const popups = {
+    1: document.getElementById("happiness"),
+    2: document.getElementById("sadness"),
+    3: document.getElementById("anger"),
+    4: document.getElementById("surprise"),
+    5: document.getElementById("fear"),
+    6: document.getElementById("disgust")
+};
+
+//Ocultar las instrucciones
+startGame.addEventListener("click", ()=> {
+    instructionsGame.style.display="none";
+})
+
+// Función para ocultar todos los pop-ups
+const hidePopups = () => {
+    Object.values(popups).forEach(popup => popup.style.display = "none");
+};
+
+// Agrega evento a todos los botones "Regresar"
+document.querySelectorAll(".play-again").forEach(button => {
+    button.addEventListener("click", hidePopups);
+});
+
+const rotationValues = [
     {minDegree: 0, maxDegree: 30 , value : 2},
     {minDegree: 31, maxDegree: 90 , value : 1},
     {minDegree: 91, maxDegree: 150 , value : 6},
@@ -107,18 +134,6 @@ let myChart = new Chart(wheel, {
     },
 });
 
-/*const valueGenerator = (angleValue) =>{
-    for (let index of rotations) {
-       if(angleValue >= index.minDegree && angleValue <= index.maxDegree){
-        finalValue.innerHTML = 
-        '<p>Value: ${index.value}</p>';
-        spingBtn.disabled = false;
-        break;
-       }
-        
-    }
-}*/
-
 let rotationAngle = 0; // Ángulo inicial de rotación
 let selectedValue = null; // Valor seleccionado después del giro
 
@@ -126,11 +141,16 @@ const spinWheel = () => {
     spingBtn.disabled = true; // Deshabilita el botón mientras gira
 
     // Seleccionar un segmento aleatorio
-    const randomSegment = roatationValues[Math.floor(Math.random() * roatationValues.length)];
+    const randomSegment = rotationValues[Math.floor(Math.random() * rotationValues.length)];
     const randomDegree = (randomSegment.minDegree + randomSegment.maxDegree) / 2; // Ángulo central del segmento seleccionado
 
     // Ajustar para que el segmento quede en la posición de 180°
-    const offset = 250; // La flecha está fija a los 180°
+    let offset = 0; // La flecha está fija a los 180°
+    if(screen.width <= 480){
+        offset = 340;
+    } else{
+        offset = 250;
+    }
     const targetAngle = offset - randomDegree; // Ángulo necesario para alinear el segmento con la flecha
     const totalRotation = 360 * 5 + targetAngle + 360; // Rotaciones completas + ajuste
 
@@ -147,20 +167,49 @@ const spinWheel = () => {
     }, 10);
 };
 
+const showPopup = (value) => {
+    // Oculta todos los popups antes de mostrar el correcto
+    Object.values(popups).forEach(popup => popup.style.display = "none");
+    
+    // Muestra el popup correspondiente al valor seleccionado
+    let popupId = "";
+    switch (value) {
+        case 1:
+            popupId = "happiness";
+            break;
+        case 2:
+            popupId = "sadness";
+            break;
+        case 3:
+            popupId = "anger";
+            break;
+        case 4:
+            popupId = "surprise";
+            break;
+        case 5:
+            popupId = "fear";
+            break;
+        case 6:
+            popupId = "disgust";
+            break;
+        default:
+            console.warn("Valor no válido:", value);
+            return; // Sale de la función si el valor no está definido
+    }
+    document.getElementById(popupId).style.display = "flex";
+};
 
-// Función para determinar el valor basado en el ángulo
+// Función para determinar el valor seleccionado y mostrar el pop-up adecuado
 const determineValue = (angle) => {
-    for (let segment of roatationValues) {
+    for (let segment of rotationValues) {
         if (angle >= segment.minDegree && angle <= segment.maxDegree) {
-            selectedValue = segment.value; // Almacena el valor seleccionado
-            /*finalValue.innerHTML = `
-            <p>Valor: ${selectedValue}</p>
-            <p>Ángulo: ${angle}°</p> 
-            `;*/
+            selectedValue = segment.value;
+           //console.log(selectedValue);
+            showPopup(selectedValue);
             break;
         }
     }
-    spingBtn.disabled = false; // Habilita el botón para otro giro
+    spingBtn.disabled = false; 
 };
 
 // Agregar el evento al botón para girar la ruleta
