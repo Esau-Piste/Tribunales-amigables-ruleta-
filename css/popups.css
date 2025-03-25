@@ -10,6 +10,17 @@
     align-items: center;
     z-index: 10;
 }
+.popups-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popups-img img{
+    height: 300px;
+}
+.popups-text{
+    margin: 25px;
+}
 .popups-content {
     font-family: 'Merriweather Sans', sans-serif;
     background-color: #fff;
@@ -17,13 +28,16 @@
     text-align: center;
     width: 500px;
     height: auto;
+    border-radius: 15px;
+    font-size: 20px;
 }
+/*
 .popups-content img{
     border-radius: initial;
     box-shadow: none;
     width: 20%;
     height: auto;
-}
+}*/
 #start-game {
     background-color: #4CAF50;
     color: white;

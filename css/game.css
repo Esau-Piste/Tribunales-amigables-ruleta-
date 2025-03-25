@@ -13,13 +13,17 @@
   --color3: #D53E4F; 
 
 }
+
+
 .game-content {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em;
-  background-color: var(--bg-principal);
+  padding: 0;
+  background-image:url("../imagenes/game/Fondo_Ruleta.jpg");
+  background-size: cover;  /* Ajusta la imagen para que cubra todo el contenedor */
+  background-position: center;
 }
 .contaniner {
   display: flex;
@@ -29,19 +33,32 @@
   height: 100%;
 }
 
+.marco-ruleta{
+  background: url("../imagenes/game/ruleta.png");
+  background-size: cover;  /* Ajusta el tamaño del marco al contenedor */
+  background-position: center;  /* Centra la imagen del marco */
+  width: 35vw;  /* Ajusta el tamaño de la ruleta según el diseño */
+  height: 35vw;  /* Ajusta el tamaño del contenedor según el diseño */
+  border-radius: 50%;
+  margin-top: 0vh;
+}
+
+
 #wheel {
-  width: 50vw;
-  max-width: 400px;
+  width: 25vw;
+  max-width: 300px;
   height: auto;
   padding: 0;
   border-radius: 100%;
 }
-.RULETA{
+.roulette{
   position: relative; 
   display: flex; 
   justify-content: center; 
   align-items: center;
+  margin-top: 0vh;
 }
+
 #spin-btn {
   z-index: 2; 
   position: absolute;
@@ -68,20 +85,37 @@
 
 
 .arrow-game {
+  z-index: 2; 
   position: absolute;
-  left: 25vw;
+  left: 35vw;
   /*right: 70vw;*/
-  top: 60%;
+  top: 59%;
   transform: translateY(-50%);
-  width: 7vw;
+  width: 5vw;
   height: auto;
 }
+#tito-principal{
+  width: 15vw;
+  height: auto;
+  z-index: 2;
+  position: absolute;
+  right: 15vw;
+}
 @media (max-width: 1024px) {
+  .marco-ruleta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55vw;  /* Ajusta el tamaño de la ruleta según el diseño */
+    height: 55vw; 
+  }
+  .roulette{
+    width: 65%;
+  }
   .arrow-game {
-      position: relative;
-      inset: auto auto -10vw -2vw;
-
-      width: 15vw; /* Escala la flecha proporcionalmente */
+      position: absolute;
+      inset: auto auto 25vw 25vw;
+      width: 8vw; /* Escala la flecha proporcionalmente */
   }
 
   #spin-btn {
@@ -89,16 +123,35 @@
       height: 10vw;
       font-size: 1.5rem; /* Reduce el tamaño del texto en el botón*/ 
   }
+  #wheel{
+    max-width: 400px;
+  }
   
  
 }
 
 @media  (max-width: 768px) {
-  
+  .marco-ruleta{
+    background: url("../imagenes/game/ruleta.png");
+    background-size: cover;  /* Ajusta el tamaño del marco al contenedor */
+    background-position: center;  /* Centra la imagen del marco */
+    width: 80vw;  /* Ajusta el tamaño de la ruleta según el diseño */
+    height: 80vw;  /* Ajusta el tamaño del contenedor según el diseño */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+
+  }
+  .roulette{
+    width: 60%;
+    
+  }
+ 
   .arrow-game {
       width: 12vw; /* Escala la flecha proporcionalmente */
-      position: relative;
-      inset: auto auto -7vw -2vw ;
+      position: absolute;
+      inset: auto auto 40vw 15vw ;
 
   }
 
@@ -108,10 +161,10 @@
       font-size: 1.5rem; /* Reduce el tamaño del texto en el botón*/ 
       margin: 0%;
   }
-
-  #wheel {
-      width: 70%; /* Reduce el tamaño de la ruleta */
+  #wheel{
+    max-width: 400px;
   }
+ 
 }
 
 @media (max-width: 480px) {
@@ -119,19 +172,32 @@
     display: flex;
     flex-direction: column;
   }
-  .RULETA{
-    width: 90%;
+  .marco-ruleta{
+    background: url("../imagenes/game/ruleta.png");
+    background-size: cover;  /* Ajusta el tamaño del marco al contenedor */
+    background-position: center;  /* Centra la imagen del marco */
+    width: 110vw;  /* Ajusta el tamaño de la ruleta según el diseño */
+    height: 110vw;  /* Ajusta el tamaño del contenedor según el diseño */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .roulette{
+    width: 60%;
+    
   }
   .arrow-game {
-      left:-2vw; /* Mueve la flecha aún más lejos */
-      top: -5vw;
-      width: 20vw;
-      position: relative;
+     display: flex;
+     position: absolute;
+      inset: 70vw auto auto 42vw ;
+      width: 15vw;
       transform: rotate(90deg);
 
   }
   #wheel {
-    width: 70%; /* Reduce el tamaño de la ruleta */
+    width: 90%; /* Reduce el tamaño de la ruleta */
     padding: 0;
     border-radius: 100%;
 }

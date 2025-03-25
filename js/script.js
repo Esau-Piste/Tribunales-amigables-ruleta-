@@ -3,7 +3,8 @@ const spingBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
 const instructionsGame = document.getElementById("instructions-game");
 const  startGame= document.getElementById("start-game");
-const sound = new Audio('sonidos/spin-sound2.mp3');
+const spinSound = new Audio('sonidos/spin-sound2.mp3');
+const popUpSound = new Audio('sonidos/popups-sound.mp3');
 
 // IDs de los popups de emociones
 const popups = {
@@ -15,10 +16,25 @@ const popups = {
     6: document.getElementById("disgust")
 };
 
+//Tito neutral
+const tito = document.getElementById("tito-principal");
+tito.style.display = "none"; 
+
+//Botón
+const playAgainButtons = document.querySelectorAll(".play-again");
+
 //Ocultar las instrucciones
 startGame.addEventListener("click", ()=> {
     instructionsGame.style.display="none";
+    tito.style.display = "block"; 
 })
+
+// Mostrar tito al presionar botón
+playAgainButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        tito.style.display = "block";
+    });
+});
 
 // Función para ocultar todos los pop-ups
 const hidePopups = () => {
@@ -51,12 +67,12 @@ const pieColors = [
 ];
 
 const segmentImages = [
-    "IMG/Group 268.png",
-    "IMG/head_sad-1.png",
-    "IMG/head_sad.png",
-    "IMG/head.png",
-    "IMG/head_sad.png",
-    "IMG/head.png"
+    "imagenes/tito/tristeza.png",
+    "imagenes/tito/felicidad.png",
+    "imagenes/tito/asco.png",
+    "imagenes/tito/miedo.png",
+    "imagenes/tito/sorpresa.png",
+    "imagenes/tito/enojo.png"
 ];
 
 // Precarga las imágenes
@@ -119,21 +135,29 @@ let myChart = new Chart(wheel, {
             data: data,
         }],
     },
+    
     options: {
         responsive: true,
         animation: { duration: 0 },
+        events: [],  // Esto desactiva los eventos del mouse sobre el gráfico
         plugins: {
             tooltip: false,
             legend: {
                 display: false,
             },
-            // Removemos datalabels ya que ahora usamos un plugin personalizado
             datalabels: {
                 display: false
             }
         },
     },
 });
+
+// Esperar a que todas las imágenes estén cargadas antes de actualizar el gráfico
+Promise.all(loadedImages.map(img => new Promise(resolve => img.onload = resolve)))
+    .then(() => {
+        myChart.update(); // Forzar la actualización después de cargar las imágenes
+    });
+
 
 let rotationAngle = 0; // Ángulo inicial de rotación
 let selectedValue = null; // Valor seleccionado después del giro
@@ -142,7 +166,7 @@ const spinWheel = () => {
     spingBtn.disabled = true; // Deshabilita el botón mientras gira
 
     // Iniciar la reproducción del sonido
-    sound.play();
+    spinSound.play();
     
     // Seleccionar un segmento aleatorio
     const randomSegment = rotationValues[Math.floor(Math.random() * rotationValues.length)];
@@ -162,13 +186,14 @@ const spinWheel = () => {
     const rotationAnimation = setInterval(() => {
         rotationAngle += 10; // Incrementa el ángulo
         wheel.style.transform = `rotate(${rotationAngle}deg)`; // Aplica la rotación
+       //myChart.update();
 
         if (rotationAngle >= totalRotation) {
             clearInterval(rotationAnimation); // Detén la animación
             rotationAngle %= 360; // Mantén el ángulo dentro de 0-360
             determineValue((360 + offset - rotationAngle) % 360); // Determina el valor seleccionado basado en el ángulo real
-            sound.pause(); // Detener el sonido cuando la ruleta se detiene
-            sound.currentTime = 0; // Resetea el sonido para que pueda reproducirse nuevamente si es necesario
+            spinSound.pause(); // Detener el sonido cuando la ruleta se detiene
+            spinSound.currentTime = 0; // Resetea el sonido para que pueda reproducirse nuevamente si es necesario
         }
     }, 15);
 };
@@ -203,6 +228,9 @@ const showPopup = (value) => {
             return; // Sale de la función si el valor no está definido
     }
     document.getElementById(popupId).style.display = "flex";
+    tito.style.display="none";
+
+    popUpSound.play();
 };
 
 // Función para determinar el valor seleccionado y mostrar el pop-up adecuado
@@ -216,7 +244,10 @@ const determineValue = (angle) => {
         }
     }
     spingBtn.disabled = false; 
+    //myChart.update();
+
 };
 
 // Agregar el evento al botón para girar la ruleta
 spingBtn.addEventListener("click", spinWheel);
+
