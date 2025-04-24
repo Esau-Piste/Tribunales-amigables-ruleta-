@@ -10,6 +10,20 @@
     align-items: center;
     z-index: 10;
 }
+<<<<<<< HEAD
+=======
+.popups-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popups-img img{
+    height: 300px;
+}
+.popups-text{
+    margin: 25px;
+}
+>>>>>>> Mariam-Moreno
 .popups-content {
     font-family: 'Merriweather Sans', sans-serif;
     background-color: #fff;
@@ -17,13 +31,24 @@
     text-align: center;
     width: 500px;
     height: auto;
+<<<<<<< HEAD
 }
+=======
+    border-radius: 15px;
+    font-size: 20px;
+}
+/*
+>>>>>>> Mariam-Moreno
 .popups-content img{
     border-radius: initial;
     box-shadow: none;
     width: 20%;
     height: auto;
+<<<<<<< HEAD
 }
+=======
+}*/
+>>>>>>> Mariam-Moreno
 #start-game {
     background-color: #4CAF50;
     color: white;

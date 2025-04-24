@@ -3,7 +3,12 @@ const spingBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
 const instructionsGame = document.getElementById("instructions-game");
 const  startGame= document.getElementById("start-game");
+<<<<<<< HEAD
 const sound = new Audio('sonidos/spin-sound2.mp3');
+=======
+const spinSound = new Audio('sonidos/spin-sound2.mp3');
+const popUpSound = new Audio('sonidos/popups-sound.mp3');
+>>>>>>> Mariam-Moreno
 
 // IDs de los popups de emociones
 const popups = {
@@ -15,11 +20,34 @@ const popups = {
     6: document.getElementById("disgust")
 };
 
+<<<<<<< HEAD
 //Ocultar las instrucciones
 startGame.addEventListener("click", ()=> {
     instructionsGame.style.display="none";
 })
 
+=======
+//Tito neutral
+const tito = document.getElementById("tito-principal");
+tito.style.display = "none"; 
+
+//Botón
+const playAgainButtons = document.querySelectorAll(".play-again");
+
+//Ocultar las instrucciones
+startGame.addEventListener("click", ()=> {
+    instructionsGame.style.display="none";
+    tito.style.display = "block"; 
+})
+
+// Mostrar tito al presionar botón
+playAgainButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        tito.style.display = "block";
+    });
+});
+
+>>>>>>> Mariam-Moreno
 // Función para ocultar todos los pop-ups
 const hidePopups = () => {
     Object.values(popups).forEach(popup => popup.style.display = "none");
@@ -134,9 +162,20 @@ let myChart = new Chart(wheel, {
             }
         },
     },
+<<<<<<< HEAD
     
 });
 
+=======
+});
+
+// Esperar a que todas las imágenes estén cargadas antes de actualizar el gráfico
+Promise.all(loadedImages.map(img => new Promise(resolve => img.onload = resolve)))
+    .then(() => {
+        myChart.update(); // Forzar la actualización después de cargar las imágenes
+    });
+
+>>>>>>> Mariam-Moreno
 
 let rotationAngle = 0; // Ángulo inicial de rotación
 let selectedValue = null; // Valor seleccionado después del giro
@@ -145,7 +184,11 @@ const spinWheel = () => {
     spingBtn.disabled = true; // Deshabilita el botón mientras gira
 
     // Iniciar la reproducción del sonido
+<<<<<<< HEAD
     sound.play();
+=======
+    spinSound.play();
+>>>>>>> Mariam-Moreno
     
     // Seleccionar un segmento aleatorio
     const randomSegment = rotationValues[Math.floor(Math.random() * rotationValues.length)];
@@ -165,13 +208,22 @@ const spinWheel = () => {
     const rotationAnimation = setInterval(() => {
         rotationAngle += 10; // Incrementa el ángulo
         wheel.style.transform = `rotate(${rotationAngle}deg)`; // Aplica la rotación
+<<<<<<< HEAD
+=======
+       //myChart.update();
+>>>>>>> Mariam-Moreno
 
         if (rotationAngle >= totalRotation) {
             clearInterval(rotationAnimation); // Detén la animación
             rotationAngle %= 360; // Mantén el ángulo dentro de 0-360
             determineValue((360 + offset - rotationAngle) % 360); // Determina el valor seleccionado basado en el ángulo real
+<<<<<<< HEAD
             sound.pause(); // Detener el sonido cuando la ruleta se detiene
             sound.currentTime = 0; // Resetea el sonido para que pueda reproducirse nuevamente si es necesario
+=======
+            spinSound.pause(); // Detener el sonido cuando la ruleta se detiene
+            spinSound.currentTime = 0; // Resetea el sonido para que pueda reproducirse nuevamente si es necesario
+>>>>>>> Mariam-Moreno
         }
     }, 15);
 };
@@ -206,6 +258,12 @@ const showPopup = (value) => {
             return; // Sale de la función si el valor no está definido
     }
     document.getElementById(popupId).style.display = "flex";
+<<<<<<< HEAD
+=======
+    tito.style.display="none";
+
+    popUpSound.play();
+>>>>>>> Mariam-Moreno
 };
 
 // Función para determinar el valor seleccionado y mostrar el pop-up adecuado
@@ -219,7 +277,17 @@ const determineValue = (angle) => {
         }
     }
     spingBtn.disabled = false; 
+<<<<<<< HEAD
 };
 
 // Agregar el evento al botón para girar la ruleta
 spingBtn.addEventListener("click", spinWheel);
+=======
+    //myChart.update();
+
+};
+
+// Agregar el evento al botón para girar la ruleta
+spingBtn.addEventListener("click", spinWheel);
+
+>>>>>>> Mariam-Moreno
