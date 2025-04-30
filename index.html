@@ -1,26 +1,264 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juego para Niños</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/game.css">
+<link rel="stylesheet" href="css/popups.css">
+<link href="https://fonts.cdnfonts.com/css/lazy-dog" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
-        <div class = "contaniner">
-            <canvas id="wheel"></canvas>
-            <button id="spin-btn">Girar</button>
-        </div>
-        <div id="final-value">
-            <p>reusltado</p>
-        </div>
-        
+
+        <header class="header">
+            <div class="grid-item arrow-container">
+            <a href="#"><img src="./imagenes/flecha-verde.png" alt="Flecha" class="img-button"></a>
+            </div>
+            <div class="grid-item cloud-container">
+                <img src="./imagenes/yellow-cloud.png" alt="Nube" class="cloud-image">
+                <h1 class="title">RULETA DE EMOCIONES</h1>
+
+            </div>
+            <div class="grid-item home-container">
+            <a href="#"><img src="./imagenes/casa.png" alt="Inicio" class="home img-button"></a>
+            </div>
+        </header>
+    
+
+        <main class="game-content">
+            <div id="instructions-game" >
+                <div class="popups-content">
+<<<<<<< HEAD
+                    <h1>Ruleta</h1>
+                    <p>Haz girar la ruleta dando clic en la palabra “girar” 
+                        Ayuda a Tito a saber qué emoción está sintiendo, leyendo en voz alta la emoción que salga y 
+                        de qué trata.  
+                        ¡Juega cuantas veces quieras y descubre más sobre lo que sientes! 
+                    </p>
+=======
+                    <div class="popups-flex">
+                        <div class="popups-text">
+                            <h1>Ruleta</h1>
+                            <p>Haz girar la ruleta dando clic en la palabra “girar” 
+                                Ayuda a Tito a saber qué emoción está sintiendo, leyendo en voz alta la emoción que salga y 
+                                de qué trata.  
+                                ¡Juega cuantas veces quieras y descubre más sobre lo que sientes! 
+                            </p>
+                        </div>
+                        <div class="popups-img">
+                            <img src="imagenes/poses-tito/felicida.png" alt="emoción Felicidad">
+                        </div>
+                    </div>
+>>>>>>> Mariam-Moreno
+                    <button id="start-game">Comenzar</button>
+                </div>
+            </div>
+           
+            <section class = "contaniner">
+                <img src="imagenes/game/Flecha.png" alt="Flecha Morada" class="arrow-game">
+                <img src="imagenes/poses-tito/felicida.png" alt="" id="tito-principal">
+                <div class="marco-ruleta">
+                    <div class="roulette">
+                        <canvas id="wheel"></canvas>
+                        <button id="spin-btn">Girar</button>
+                    </div>
+                </div>
+            </section>
+
+            <div id="sadness" >
+                <div class="popups-content">
+<<<<<<< HEAD
+                    <h1>Tristeza</h1>
+                    <img src="imagenes/tito/tristeza.png" alt="emoción Tristeza">
+                    <p>Es cuando sentimos pena o cuando algo nos 
+                        duele o lastima. Por ejemplo cuando 
+                        extrañamos a alguien o perdemos algo que es 
+                        valioso para nosotros. 
+                    </p>
+=======
+                    <div class="popups-flex">
+                        <div class="popups-text">
+                            <h1>Tristeza</h1>
+                            <p>Es cuando sentimos pena o cuando algo nos 
+                                duele o lastima. Por ejemplo cuando 
+                                extrañamos a alguien o perdemos algo que es 
+                                valioso para nosotros. 
+                            </p>
+                        </div>
+                        <div class="popups-img">
+                            <img src="imagenes/poses-tito/tristeza.png" alt="emoción Tristeza">
+                        </div>
+                    </div>
+>>>>>>> Mariam-Moreno
+                    <button class="play-again">Regresar</button>
+                </div>
+            </div>
+
+            <div id="happiness" >
+                <div class="popups-content">
+<<<<<<< HEAD
+                    <h1>Felicidad</h1>
+                    <img src="imagenes/tito/felicidad.png" alt="emoción Felicidad">
+                    <p>Esta emoción se presenta cuando nos sentimos 
+                        bien, animados y felices. Nos ayuda a estar 
+                        con energía y creatividad. 
+                    </p>
+=======
+                    <div class="popups-flex">
+                        <div class="popups-text">
+                            <h1>Felicidad</h1>
+                            <p>Esta emoción se presenta cuando nos sentimos 
+                                bien, animados y felices. Nos ayuda a estar 
+                                con energía y creatividad. 
+                            </p>
+                        </div>
+                        <div class="popups-img">
+                            <img src="imagenes/poses-tito/felicida.png" alt="emoción Felicidad">
+                        </div>
+                    </div>
+>>>>>>> Mariam-Moreno
+                    <button class="play-again">Regresar</button>
+                </div>
+            </div>
+
+            <div id="anger" >
+                <div class="popups-content">
+<<<<<<< HEAD
+                    <h1>Enojo</h1>
+                    <img src="imagenes/tito/enojo.png" alt="emoción Enojo">
+                    <p>Aparece cuando algo nos parece injusto, nos 
+                        disgusta y nos crea malestar. Cuando estamos 
+                        enojados, nuestros músculos pueden estar 
+                        tensos, sobretodo en los hombros y el cuello. 
+                        También podemos notar que apretamos las 
+                        manos con fuerza y que el corazón late más 
+                        rápido. 
+                    </p>
+=======
+                    <div class="popups-flex">
+                        <div class="popups-text">
+                            <h1>Enojo</h1>
+                            <p>Aparece cuando algo nos parece injusto, nos 
+                                disgusta y nos crea malestar. Cuando estamos 
+                                enojados, nuestros músculos pueden estar 
+                                tensos, sobretodo en los hombros y el cuello. 
+                                También podemos notar que apretamos las 
+                                manos con fuerza y que el corazón late más 
+                                rápido. 
+                            </p>
+                        </div>
+                        <div class="popups-img">
+                            <img src="imagenes/poses-tito/enojo.png" alt="emoción Enojo">
+                        </div>
+                    </div>
+>>>>>>> Mariam-Moreno
+                    <button class="play-again">Regresar</button>
+                </div>
+            </div>
+
+            <div id="surprise" >
+                <div class="popups-content">
+<<<<<<< HEAD
+                    <h1>Sorpresa</h1>
+                    <img src="imagenes/tito/sorpresa.png" alt="emoción Sorpresa">
+                    <p>Se presenta cuando algo inesperado sucede, y 
+                        puede generarte emociones como alegría y 
+                        asombro. A veces puede ser algo muy bueno, 
+                        como recibir un regalo que no esperabas, o 
+                        puede ser un poco inquietante como escuchar 
+                        un ruido de noche.
+                    </p>
+=======
+                    <div class="popups-flex">
+                        <div class="popups-text">
+                            <h1>Sorpresa</h1>
+                            <p>Se presenta cuando algo inesperado sucede, y 
+                                puede generarte emociones como alegría y 
+                                asombro. A veces puede ser algo muy bueno, 
+                                como recibir un regalo que no esperabas, o 
+                                puede ser un poco inquietante como escuchar 
+                                un ruido de noche.
+                            </p>
+                        </div>
+                        <div class="popups-img">
+                                <img src="imagenes/poses-tito/sorpresa.png" alt="emoción Sorpresa">
+                        </div>
+                    </div>
+>>>>>>> Mariam-Moreno
+                    <button class="play-again">Regresar</button>
+                </div>
+            </div>
+
+            <div id="fear" >
+                <div class="popups-content">
+<<<<<<< HEAD
+                    <h1>Miedo</h1>
+                    <img src="imagenes/tito/miedo.png" alt="emoción Miedo">
+                    <p>Es cuando te sientes asustado o te sientes en 
+                        peligro. Esta emoción es la que nos permite 
+                        reconocer cuando estamos en una situación de 
+                        riesgo. 
+                    </p>
+=======
+                    <div class="popups-flex">
+                        <div class="popups-text">
+                            <h1>Miedo</h1>
+                            <p>Es cuando te sientes asustado o te sientes en 
+                                peligro. Esta emoción es la que nos permite 
+                                reconocer cuando estamos en una situación de 
+                                riesgo. 
+                            </p>
+                        </div>
+                        <div class="popups-img">
+                            <img src="imagenes/poses-tito/miedo.png" alt="emoción Miedo">
+                        </div>
+                    </div>
+>>>>>>> Mariam-Moreno
+                    <button class="play-again">Regresar</button>
+                </div>
+            </div>
+
+            <div id="disgust" >
+                <div class="popups-content">
+<<<<<<< HEAD
+                    <h1>Asco</h1>
+                    <img src="imagenes/tito/asco.png" alt="emoción Asco">
+                    <p>Es una emoción que sentimos cuando algo nos 
+                        parece muy desagradable, como un olor feo, 
+                        una comida que sabe mal o algo sucio. Nos 
+                        ayuda a alejarnos de cosas que podrían 
+                        hacernos daño o de las que rechazamos.
+                    </p>
+=======
+                    <div class="popups-flex">
+                        <div class="popups-text">
+                            <h1>Asco</h1>
+                            <p>Es una emoción que sentimos cuando algo nos 
+                                parece muy desagradable, como un olor feo, 
+                                una comida que sabe mal o algo sucio. Nos 
+                                ayuda a alejarnos de cosas que podrían 
+                                hacernos daño o de las que rechazamos.
+                            </p>
+                        </div>
+                        <div class="popups-img">
+                            <img src="imagenes/poses-tito/asco.png" alt="emoción Asco">
+                        </div>
+                    </div>
+>>>>>>> Mariam-Moreno
+                    <button class="play-again">Regresar</button>
+                </div>
+            </div>
+           
+        </main>
+
+        <footer class="footer">
+            <p>UNIVERSIDAD AUTÓNOMA DE YUCATÁN   |      © TODOS LOS DERECHOS RESERVADOS</p>
+        </footer>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
-    <script src="js/ejemplo.js"></script>
-    
+    <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
+    <script  rel="preload" src="js/script.js"></script>
 </body>
 </html>
